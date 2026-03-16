@@ -41,7 +41,7 @@ class Alert(Base):
     __tablename__ = 'alerts'
     
     id = Column(Integer, primary_key=True)
-    health_check_id = Column(Integer, ForeignKey('health_checks.id'), nullable=False)
+    health_check_id = Column(Integer, ForeignKey('health_checks.id'), nullable=True)
     
     # Alert Details
     severity = Column(String(20), nullable=False)
