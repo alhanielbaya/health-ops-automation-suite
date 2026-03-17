@@ -39,3 +39,4 @@ config.local.yml
 *.db-journal
 *.db-wal
 *.db-shm
+AGENTS.MD

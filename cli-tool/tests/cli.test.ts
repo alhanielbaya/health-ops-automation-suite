@@ -21,11 +21,30 @@ describe("CLI Tool Tests", () => {
       expect(asset?.asset_tag).toBe("WS-2024-001");
     });
     
-    it("should return asset object for any tag", async () => {
-      // Note: Mock DB always returns an asset for demo purposes
-      const asset = await db.getAsset("ANY-TAG");
-      expect(asset).toBeDefined();
-      expect(asset?.asset_tag).toBe("ANY-TAG");
+    it("should return null for non-existent asset", async () => {
+      const asset = await db.getAsset("NON-EXISTENT-TAG");
+      expect(asset).toBeNull();
+    });
+    
+    it("should create and retrieve new user", async () => {
+      const userData = {
+        employeeId: "TEST-001",
+        firstName: "Test",
+        lastName: "User",
+        email: "test@example.com",
+        department: "IT",
+        jobTitle: "Test Engineer",
+        phone: "555-TEST",
+        isActive: true,
+        hireDate: new Date().toISOString()
+      };
+      
+      const userId = await db.createUser(userData);
+      expect(userId).toBeGreaterThan(0);
+      
+      const foundUser = await db.findUserByEmployeeId("TEST-001");
+      expect(foundUser).toBeDefined();
+      expect(foundUser?.first_name).toBe("Test");
     });
   });
   

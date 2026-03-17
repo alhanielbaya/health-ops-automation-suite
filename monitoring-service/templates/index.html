@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Ops Monitoring Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>Health Ops Monitoring Dashboard</h1>
+      <p>Real-time healthcare IT asset monitoring</p>
+    </div>
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card info">
+          <h3>Total Assets</h3>
+          <div class="stat-value" id="totalAssets">-</div>
+        </div>
+        <div class="stat-card healthy">
+          <h3>Healthy</h3>
+          <div class="stat-value" id="healthyAssets">-</div>
+        </div>
+        <div class="stat-card warning">
+          <h3>Warning</h3>
+          <div class="stat-value" id="warningAssets">-</div>
+        </div>
+        <div class="stat-card critical">
+          <h3>Critical</h3>
+          <div class="stat-value" id="criticalAssets">-</div>
+        </div>
+      </div>
+      <div class="section">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+          "
+        >
+          <h2>Asset Health Status</h2>
+          <button class="refresh-btn" onclick="loadData()">Refresh</button>
+        </div>
+        <div id="assetsTable"><div class="loading">Loading...</div></div>
+      </div>
+      <div class="section">
+        <h2>Recent Alerts</h2>
+        <div id="alertsTable"><div class="loading">Loading...</div></div>
+      </div>
+    </div>
+    <script src="/static/js/dashboard.js"></script>
+  </body>
+</html>

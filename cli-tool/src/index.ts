@@ -34,6 +34,8 @@ program
   .description('Configure a new workstation for a user')
   .option('-u, --user <employeeId>', 'Employee ID')
   .option('-a, --asset <assetTag>', 'Asset tag (e.g., WS-2024-001)')
+  .option('-s, --scenario <name>', 'run pre-configured scenario (sarah-johnson)')
+  .option('-y, --yes', 'skip confirmation prompts')
   .option('--skip-network', 'skip network configuration')
   .option('--skip-software', 'skip software installation')
   .action(async (options) => {

@@ -18,6 +18,7 @@ This suite provides three integrated components for healthcare IT operations:
 ## Features
 
 ### Mission-Critical Monitoring
+
 - Async health checks with configurable intervals
 - Latency measurement with threshold-based alerting
 - Real-time web dashboard
@@ -25,6 +26,7 @@ This suite provides three integrated components for healthcare IT operations:
 - Health check history and reporting
 
 ### Infrastructure Automation
+
 - Interactive workstation setup for new hires
 - Security baseline validation
 - Network configuration automation
@@ -32,6 +34,7 @@ This suite provides three integrated components for healthcare IT operations:
 - Compliance reporting (JSON/CSV/Table)
 
 ### Database Management
+
 - SQLite database with SQLAlchemy ORM
 - Asset tracking (computers, servers, devices)
 - User management (employees, departments)
@@ -50,12 +53,14 @@ This suite provides three integrated components for healthcare IT operations:
 ### Installation
 
 1. **Clone the repository**
+
 ```bash
 git clone <repository-url>
 cd health-ops-automation-suite
 ```
 
 2. **Set up Python environment**
+
 ```bash
 # Create virtual environment
 cd monitoring-service
@@ -72,6 +77,7 @@ pip install -r requirements.txt
 ```
 
 3. **Initialize the database**
+
 ```bash
 cd ../database
 pip install -r requirements.txt
@@ -79,6 +85,7 @@ python init_db.py
 ```
 
 4. **Set up Bun CLI tool**
+
 ```bash
 cd ../cli-tool
 bun install
@@ -95,6 +102,7 @@ python start_dashboard.py
 ```
 
 Open your browser:
+
 - **Dashboard**: http://localhost:8000
 - **API Documentation**: http://localhost:8000/docs
 
@@ -114,6 +122,7 @@ bun run src/index.ts setup
 ```
 
 Follow the interactive prompts to:
+
 1. Enter employee information
 2. Configure asset details
 3. Set up network configuration
@@ -189,6 +198,7 @@ health-ops-automation-suite/
 ## Technology Stack
 
 ### Python Components
+
 - **FastAPI** - Modern web framework for the dashboard API
 - **SQLAlchemy** - ORM for database operations
 - **aiohttp** - Async HTTP client for health checks
@@ -197,6 +207,7 @@ health-ops-automation-suite/
 - **Uvicorn** - ASGI server
 
 ### TypeScript/Bun Components
+
 - **Bun** - JavaScript runtime and package manager
 - **Commander.js** - CLI framework
 - **Inquirer** - Interactive prompts
@@ -204,9 +215,9 @@ health-ops-automation-suite/
 - **Ora** - Loading spinners
 
 ### Database
+
 - **SQLite** - Serverless database
 - **SQLAlchemy** - Python ORM
-- **Alembic** - Database migrations (optional)
 
 ## Configuration
 
@@ -284,6 +295,7 @@ bun run src/index.ts --help
 ## Testing
 
 ### Python Tests
+
 ```bash
 cd monitoring-service
 source venv/Scripts/activate
@@ -299,6 +311,7 @@ pytest tests/
 ```
 
 ### Bun Tests
+
 ```bash
 cd cli-tool
 
@@ -325,19 +338,19 @@ See [docs/architecture.md](docs/architecture.md) for detailed architecture diagr
 └─────────────────────────────────────────────────────────┘
                            │
                            ▼
-┌─────────────────────────────────────────────────────────┐
+┌──────────────────────────────────────────────────────────┐
 │                    API LAYER                             │
-├─────────────────────────────────────────────────────────┤
+├──────────────────────────────────────────────────────────┤
 │  FastAPI REST Endpoints                                  │
 │  - /api/assets                                           │
 │  - /api/health-status                                    │
 │  - /api/alerts                                           │
 │  - /api/stats                                            │
-└─────────────────────────────────────────────────────────┘
+└──────────────────────────────────────────────────────────┘
                            │
                            ▼
 ┌─────────────────────────────────────────────────────────┐
-│                    BUSINESS LOGIC                        │
+│                    BUSINESS LOGIC                       │
 ├─────────────────────────────────────────────────────────┤
 │  HealthMonitor (async checks)                           │
 │  AlertManager (notifications)                           │
@@ -355,50 +368,6 @@ See [docs/architecture.md](docs/architecture.md) for detailed architecture diagr
 └─────────────────────────────────────────────────────────┘
 ```
 
-## Deployment
-
-### Production Checklist
-
-- [ ] Use PostgreSQL instead of SQLite
-- [ ] Add authentication to dashboard
-- [ ] Configure HTTPS
-- [ ] Set up environment variables
-- [ ] Configure log rotation
-- [ ] Set up monitoring/metrics
-- [ ] Database backups
-- [ ] Security audit
-
-### Docker Deployment (Optional)
-
-Create a `Dockerfile`:
-
-```dockerfile
-FROM python:3.11-slim
-
-WORKDIR /app
-
-# Install Python dependencies
-COPY monitoring-service/requirements.txt .
-RUN pip install -r requirements.txt
-
-# Copy application
-COPY . .
-
-# Expose port
-EXPOSE 8000
-
-# Start server
-CMD ["python", "monitoring-service/start_dashboard.py"]
-```
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
@@ -406,14 +375,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Support
 
 For support, email support@healthops.local or open an issue on GitHub.
-
-## Acknowledgments
-
-- FastAPI team for the excellent web framework
-- SQLAlchemy team for the powerful ORM
-- Bun team for the fast JavaScript runtime
-- Healthcare IT community for best practices
-
----
-
-**Built with care for healthcare IT operations** 🏥
