@@ -27,11 +27,12 @@ describe("CLI Tool Tests", () => {
     });
     
     it("should create and retrieve new user", async () => {
+      const timestamp = Date.now();
       const userData = {
-        employeeId: "TEST-001",
+        employeeId: `TEST-${timestamp}`,
         firstName: "Test",
         lastName: "User",
-        email: "test@example.com",
+        email: `test-${timestamp}@example.com`,
         department: "IT",
         jobTitle: "Test Engineer",
         phone: "555-TEST",
@@ -42,7 +43,7 @@ describe("CLI Tool Tests", () => {
       const userId = await db.createUser(userData);
       expect(userId).toBeGreaterThan(0);
       
-      const foundUser = await db.findUserByEmployeeId("TEST-001");
+      const foundUser = await db.findUserByEmployeeId(`TEST-${timestamp}`);
       expect(foundUser).toBeDefined();
       expect(foundUser?.first_name).toBe("Test");
     });
