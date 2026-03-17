@@ -97,7 +97,13 @@ bun install
 
 ```bash
 cd monitoring-service
-source venv/Scripts/activate  # On Windows
+
+# On Windows:
+venv\Scripts\activate
+
+# On macOS/Linux:
+source venv/bin/activate
+
 python start_dashboard.py
 ```
 
@@ -110,7 +116,13 @@ Open your browser:
 
 ```bash
 cd monitoring-service
-source venv/Scripts/activate
+
+# On Windows:
+venv\Scripts\activate
+
+# On macOS/Linux:
+source venv/bin/activate
+
 python tests/test_monitor.py
 ```
 
@@ -298,7 +310,12 @@ bun run src/index.ts --help
 
 ```bash
 cd monitoring-service
-source venv/Scripts/activate
+
+# On Windows:
+venv\Scripts\activate
+
+# On macOS/Linux:
+source venv/bin/activate
 
 # Run monitoring tests
 python tests/test_monitor.py
